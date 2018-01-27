@@ -1,0 +1,17 @@
+name: flutter_keepscreenon
+description: Flutter_keepscreenon package let you prevent your flutter app going to sleep programmatically.
+version: 0.0.1
+author: "fuyumi <fnatic.roach@gmail.com>"
+homepage:
+
+flutter:
+  plugin:
+    androidPackage: com.fuyumi.keepscreenon.flutterkeepscreenon
+    pluginClass: FlutterKeepscreenonPlugin
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+environment:
+    sdk: ">=1.8.0 <2.0.0"
