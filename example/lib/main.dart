@@ -10,33 +10,23 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  bool activeFlag = false;
+  String errMsg = '';
 
-  @override
-  initState() {
-    super.initState();
-    initPlatformState();
-  }
-
-  // Platform messages are asynchronous, so we initialize in an async method.
-  initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
+  toggleFlag() async {
     try {
-      platformVersion = await FlutterKeepscreenon.platformVersion;
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
+      if (activeFlag) {
+        await FlutterKeepscreenon.deactivateKeepScreenOn;
+      } else {
+        await FlutterKeepscreenon.activateKeepScreenOn;
+      }
+      setState(() => activeFlag = !activeFlag);
+    } on PlatformException catch (e) {
+      print(e);
+      setState(() => errMsg = e.message);
     }
 
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted)
-      return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
+    if (!mounted) return;
   }
 
   @override
@@ -44,10 +34,21 @@ class _MyAppState extends State<MyApp> {
     return new MaterialApp(
       home: new Scaffold(
         appBar: new AppBar(
-          title: new Text('Plugin example app'),
+          title: new Text('Flutter_keepscreenon plugin example app'),
         ),
         body: new Center(
-          child: new Text('Running on: $_platformVersion\n'),
+          child: new Container(
+            height: 100.0,
+            child: new Column(
+              children: <Widget>[
+                new Switch(
+                  onChanged: (bool value) => toggleFlag(),
+                  value: activeFlag,),
+                new Text(activeFlag ? 'It\'s on!' : 'It\'s off!',),
+                new Text(errMsg,),
+              ],
+            ),
+          )
         ),
       ),
     );

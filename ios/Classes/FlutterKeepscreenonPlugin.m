@@ -1,20 +1,8 @@
 #import "FlutterKeepscreenonPlugin.h"
+#import <flutter_keepscreenon/flutter_keepscreenon-Swift.h>
 
 @implementation FlutterKeepscreenonPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
-  FlutterMethodChannel* channel = [FlutterMethodChannel
-      methodChannelWithName:@"flutter_keepscreenon"
-            binaryMessenger:[registrar messenger]];
-  FlutterKeepscreenonPlugin* instance = [[FlutterKeepscreenonPlugin alloc] init];
-  [registrar addMethodCallDelegate:instance channel:channel];
+  [SwiftFlutterKeepscreenonPlugin registerWithRegistrar:registrar];
 }
-
-- (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
-  if ([@"getPlatformVersion" isEqualToString:call.method]) {
-    result([@"iOS " stringByAppendingString:[[UIDevice currentDevice] systemVersion]]);
-  } else {
-    result(FlutterMethodNotImplemented);
-  }
-}
-
 @end
