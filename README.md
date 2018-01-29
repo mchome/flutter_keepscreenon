@@ -1,10 +1,34 @@
 # flutter_keepscreenon
 
-A new flutter plugin project.
+[![pub package](https://img.shields.io/pub/v/flutter_keepscreenon.svg)](https://pub.dartlang.org/packages/flutter_keepscreenon)
+
+A package can help you to prevent your flutter app's screen
+going to sleep programmatically.
 
 ## Getting Started
 
-For help getting started with Flutter, view our online
-[documentation](http://flutter.io/).
+### Installation
+Add this to your pubspec.yaml (or create it):
+```yaml
+dependencies:
+  flutter_keepscreenon: any
+```
+Then run the flutter tooling:
+```bash
+flutter packages get
+```
 
-For help on editing plugin code, view the [documentation](https://flutter.io/platform-plugins/#edit-code).
+### Example
+```dart
+try {
+  await FlutterKeepscreenon.activateKeepScreenOn; // activate
+  // await FlutterKeepscreenon.deactivateKeepScreenOn; // deactivate
+} on PlatformException catch (e) {
+  print(e);
+}
+```
+
+Details in [example/](https://github.com/mchome/flutter_keepscreenon/tree/master/example) folder.
+## Note that
+I dont have macos so i cant test the ios part.  
+If you can use it in ios or patch it, please let me know.
