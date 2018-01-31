@@ -29,6 +29,3 @@ try {
 ```
 
 Details in [example/](https://github.com/mchome/flutter_keepscreenon/tree/master/example) folder.
-## Note that
-I dont have macos so i cant test the ios part.  
-If you can use it in ios or patch it, please let me know.
