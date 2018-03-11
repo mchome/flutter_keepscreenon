@@ -6,9 +6,9 @@ class FlutterKeepscreenon {
   static const MethodChannel _channel =
       const MethodChannel('plugins.fuyumi.com/screen');
 
-  static Future<String> get activateKeepScreenOn =>
+  static Future get activateKeepScreenOn =>
       _channel.invokeMethod('activateKeepScreenOn');
-  
-  static Future<String> get deactivateKeepScreenOn =>
+
+  static Future get deactivateKeepScreenOn =>
       _channel.invokeMethod('deactivateKeepScreenOn');
 }

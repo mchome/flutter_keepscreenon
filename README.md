@@ -8,17 +8,22 @@ going to sleep programmatically.
 ## Getting Started
 
 ### Installation
+
 Add this to your pubspec.yaml (or create it):
+
 ```yaml
 dependencies:
   flutter_keepscreenon: any
 ```
+
 Then run the flutter tooling:
+
 ```bash
 flutter packages get
 ```
 
 ### Example
+
 ```dart
 try {
   await FlutterKeepscreenon.activateKeepScreenOn; // activate
