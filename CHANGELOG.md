@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [0.0.3]
+
+* Upgrade to dart2
+
 ## [0.0.2+1]
 
 * Format code

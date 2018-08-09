@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_keepscreenon/flutter_keepscreenon.dart';
 
-void main() => runApp(new MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override
-  _MyAppState createState() => new _MyAppState();
+  _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
@@ -31,25 +31,29 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('Flutter_keepscreenon plugin example app'),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Flutter_keepscreenon plugin example app'),
         ),
-        body: new Center(
-          child: new Container(
-            height: 100.0,
-            child: new Column(
-              children: <Widget>[
-                new Switch(
-                  onChanged: (bool value) => toggleFlag(),
-                  value: activeFlag,),
-                new Text(activeFlag ? 'It\'s on!' : 'It\'s off!',),
-                new Text(errMsg,),
-              ],
-            ),
-          )
-        ),
+        body: Center(
+            child: Container(
+          height: 100.0,
+          child: Column(
+            children: <Widget>[
+              Switch(
+                onChanged: (bool value) => toggleFlag(),
+                value: activeFlag,
+              ),
+              Text(
+                activeFlag ? 'It\'s on!' : 'It\'s off!',
+              ),
+              Text(
+                errMsg,
+              ),
+            ],
+          ),
+        )),
       ),
     );
   }
