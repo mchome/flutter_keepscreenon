@@ -15,11 +15,10 @@ class _MyAppState extends State<MyApp> {
 
   toggleFlag() async {
     try {
-      if (activeFlag) {
-        await FlutterKeepscreenon.deactivateKeepScreenOn;
-      } else {
-        await FlutterKeepscreenon.activateKeepScreenOn;
-      }
+      if (activeFlag)
+        await FlutterKeepscreenon.keepScreenOn(false);
+      else
+        await FlutterKeepscreenon.keepScreenOn(true);
       setState(() => activeFlag = !activeFlag);
     } on PlatformException catch (e) {
       print(e);

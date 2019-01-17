@@ -10,11 +10,9 @@
 }
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
-  if ([@"activateKeepScreenOn" isEqualToString:call.method]) {
-    [[UIApplication sharedApplication] setIdleTimerDisabled: YES];
-    result(nil);
-  } else if ([@"deactivateKeepScreenOn" isEqualToString:call.method]) {
-    [[UIApplication sharedApplication] setIdleTimerDisabled: NO];
+  if ([@"keepScreenOn" isEqualToString:call.method]) {
+    NSNumber *on = call.arguments[@"on"];
+    [[UIApplication sharedApplication] setIdleTimerDisabled: on.boolValue];
     result(nil);
   } else {
     result(FlutterMethodNotImplemented);

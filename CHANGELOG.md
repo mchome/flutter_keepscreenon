@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [0.1.0]
+
+* Add `keepScreenOn` and mark `activateKeepScreenOn` and `deactivateKeepScreenOn` as deprecated.
+* Add docs.
+
 ## [0.0.3]
 
 * Upgrade to dart2

@@ -2,8 +2,7 @@
 
 [![pub package](https://img.shields.io/pub/v/flutter_keepscreenon.svg)](https://pub.dartlang.org/packages/flutter_keepscreenon)
 
-A package can help you to prevent your flutter app's screen
-going to sleep programmatically.
+A package can help you to keep the device's screen on programmatically without any permission.
 
 ## Getting Started
 
@@ -26,8 +25,7 @@ flutter packages get
 
 ```dart
 try {
-  await FlutterKeepscreenon.activateKeepScreenOn; // activate
-  // await FlutterKeepscreenon.deactivateKeepScreenOn; // deactivate
+  await FlutterKeepscreenon.keepScreenOn(true);
 } on PlatformException catch (e) {
   print(e);
 }

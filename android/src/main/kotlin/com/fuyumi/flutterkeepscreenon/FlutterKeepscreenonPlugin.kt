@@ -19,12 +19,13 @@ class FlutterKeepscreenonPlugin private constructor(private val activity: Activi
 
     override fun onMethodCall(call: MethodCall, result: Result): Unit {
         when (call.method) {
-            "activateKeepScreenOn" -> {
-                activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-                result.success(null)
-            }
-            "deactivateKeepScreenOn" -> {
-                activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+            "keepScreenOn" -> {
+                val on: Boolean = call.argument("on")!!
+                if (on) {
+                    activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+                } else {
+                    activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+                }
                 result.success(null)
             }
             else -> result.notImplemented()
