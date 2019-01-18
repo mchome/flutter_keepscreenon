@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [0.1.1]
+
+* Upgrade kotlin version.
+
 ## [0.1.0]
 
 * Add `keepScreenOn` and mark `activateKeepScreenOn` and `deactivateKeepScreenOn` as deprecated.

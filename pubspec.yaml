@@ -1,6 +1,6 @@
 name: flutter_keepscreenon
 description: A package can help you to keep the device's screen on programmatically without any permission.
-version: 0.1.0
+version: 0.1.1
 author: "fuyumi <fnatic.roach@gmail.com>"
 homepage: https://github.com/mchome/flutter_keepscreenon
 
