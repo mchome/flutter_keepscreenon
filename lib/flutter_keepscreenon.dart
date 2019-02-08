@@ -25,6 +25,6 @@ class FlutterKeepscreenon {
   /// Keep the screen on.
   /// If true, keep the screen on.
   /// Othwise reverse to system status.
-  static Future<void> keepScreenOn(bool on) =>
-      _channel.invokeMethod('keepScreenOn', {'on': on});
+  static Future<void> keepScreenOn(bool isOn) =>
+      _channel.invokeMethod('keepScreenOn', {'on': isOn});
 }
